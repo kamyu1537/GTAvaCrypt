@@ -204,18 +204,18 @@ namespace GeoTetra.GTAvaCrypt
             bool ignoredMats = false;
             foreach (var mat in materials)
             {
-                if (mat != null && mat.shader.name.Contains(".poiyomi/Poiyomi 8"))
+                if (mat != null /* && mat.shader.name.Contains(".poiyomi/Poiyomi 8") */)
                 {
                     if (!mat.shader.name.Contains("Hidden/Locked"))
                     {
                         ShaderOptimizer.SetLockedForAllMaterials(new []{mat}, 1, true, false, false);
                     }
                     
-                    if (!mat.shader.name.Contains("Hidden/Locked"))
+                    /* if (!mat.shader.name.Contains("Hidden/Locked"))
                     {
                         Debug.LogError($"{mat.name} {mat.shader.name} Trying to Inject not-locked shader?!");
                         continue;
-                    }
+                    } */
 
                     if (aggregateIgnoredMaterials.Contains(mat))
                     {
